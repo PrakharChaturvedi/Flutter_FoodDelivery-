@@ -4,6 +4,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/controllers/popular_product_controller.dart';
+import 'package:food_delivery_app/pages/food/popular_food_details.dart';
 import 'package:food_delivery_app/utils/dimensions.dart';
 import 'package:food_delivery_app/widgets/app_column.dart';
 import 'package:food_delivery_app/widgets/big_text.dart';
@@ -51,6 +52,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           GetBuilder<PopularProductController>(builder:(popularProducts){
             return Container(
               height: Dimensions.pageView,
+              child : GestureDetector(
+                onTap: (){
+                  Get.to(()=> PopularFoodDetails());
+                },
               child: PageView.builder(
                 controller: pageController,
                 itemCount: 5,
@@ -62,7 +67,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   return _buildPageItem(position);
                 },
               ),
-            );
+            ),);
           }),
 
           //Dot indicator

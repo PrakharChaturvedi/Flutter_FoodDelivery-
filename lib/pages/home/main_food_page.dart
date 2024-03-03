@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery_app/pages/home/food_page_body.daryt.dart';
 import 'package:food_delivery_app/widgets/big_text.dart';
 import 'package:food_delivery_app/widgets/small_text.dart';
+import 'package:get/get.dart';
+
+import '../../utils/dimensions.dart';
 
 class MainFoodPage extends StatefulWidget {
   const MainFoodPage({super.key});
@@ -18,8 +21,8 @@ class _MainFoodPageState extends State<MainFoodPage> {
         children: [
           //showing the header
           Container(
-            margin: EdgeInsets.only(top: 45, bottom: 15),
-            padding: EdgeInsets.only(left: 20, right: 20),
+            margin: EdgeInsets.only(top: Dimensions.width25, bottom: Dimensions.height10),
+            padding: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -35,15 +38,15 @@ class _MainFoodPageState extends State<MainFoodPage> {
                           text: "Indore",
                           color: Colors.black54,
                         ),
-                        Icon(Icons.arrow_drop_down_rounded),
+                        const Icon(Icons.arrow_drop_down_rounded),
                       ],
                     )
                   ],
                 ),
                 Center(
                   child: Container(
-                    width: 45,
-                    height: 45,
+                    width: Dimensions.iconSizeSearch,
+                    height: Dimensions.iconSizeSearch,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       color: Colors.teal,

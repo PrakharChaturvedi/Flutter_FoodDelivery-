@@ -20,11 +20,7 @@ class AppColumn extends StatelessWidget {
         SizedBox(height: Dimensions.height10),
         Row(
           children: [
-            Wrap(
-                children: List.generate(
-                    5,
-                        (index) => Icon(Icons.star,
-                        color: Colors.amber, size: 15))),
+            Wrap(children: List.generate(5,(index) => Icon(Icons.star,color: Colors.amber, size: 15))),
             SizedBox(width: Dimensions.width10),
             SmallText(text: "4.5/5", color: Colors.black54),
             SizedBox(width: Dimensions.width10),
@@ -33,7 +29,7 @@ class AppColumn extends StatelessWidget {
             SmallText(text: "comments", color: Colors.black54),
           ],
         ),
-        SizedBox(height: Dimensions.height20),
+        SizedBox(height: Dimensions.height10),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

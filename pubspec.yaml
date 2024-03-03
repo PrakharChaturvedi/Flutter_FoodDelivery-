@@ -1,5 +1,5 @@
 name: food_delivery_app
-description: Full food application with firebase as backend (dart programming language)
+description: Full food application with node and Mongo DB as backend (dart programming language)
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
@@ -12,6 +12,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   dots_indicator: ^3.0.0
   get: ^4.6.6
+  http: ^1.2.0
 
 
 dev_dependencies:

@@ -6,10 +6,10 @@ class Product {
   List<ProductModel>? get products=>_products;
 
   Product({required totalSize, required typeId, required products,required offset}){
-    this._totalSize = totalSize;
-    this._typeId = typeId;
-    this._offset = offset;
-    this._products = products;
+    _totalSize = totalSize;
+    _typeId = typeId;
+    _offset = offset;
+    _products = products;
   }
 
   Product.fromJson(Map<String,dynamic>json){
@@ -22,38 +22,47 @@ class Product {
       json['products'].forEach((v){
         _products !.addAll(ProductModel.fromJson(v) as Iterable<ProductModel>);
       });
-
     }
   }
-
 }
 
 class ProductModel {
-  int? id;
-  String? name;
-  String? description;
-  int? price;
-  int? stars;
-  String? img;
-  String? location;
-  String? createdAt;
-  String? updatedAt;
-  int? typeId;
+  final int id;
+  final String name;
+  final String description;
+  final int price;
+  final int stars;
+  final String img;
+  final String location;
+  final String createdAt;
+  final String updatedAt;
+  final int typeId;
 
   ProductModel({
-  this.id, this.name, this.description, this.price, this.stars, this.img,
-    this.location, this.createdAt, this.updatedAt, this.typeId
+    required this.id,
+    required this.name,
+    required this.description,
+    required this.price,
+    required this.stars,
+    required this.img,
+    required this.location,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.typeId,
   });
 
-  ProductModel.fromJson(Map<String, dynamic>json){
-    id = json['id'];
-    name = json['name'];
-    description = json['description'];
-    price = json['price'];
-    stars = json['stars'];
-    img = json['img'];
-    location = json['location'];
-    updatedAt = json['created_at'];
-    typeId = json['type_id'];
+  factory ProductModel.fromJson(Map<String, dynamic> json) {
+    return ProductModel(
+      id: json['id'],
+      name: json['name'],
+      description: json['description'],
+      price: json['price'],
+      stars: json['stars'],
+      img: json['img'],
+      location: json['location'],
+      createdAt: json['created_at'],
+      updatedAt: json['updated_at'],
+      typeId: json['type_id'],
+    );
   }
 }

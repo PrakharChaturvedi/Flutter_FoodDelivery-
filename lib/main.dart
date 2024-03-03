@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/controllers/popular_product_controller.dart';
-import 'package:food_delivery_app/pages/food/recommended_food.dart';
+import 'package:food_delivery_app/pages/home/main_food_page.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'helper/dependencies.dart' as dep;
 
 Future<void> main() async {
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: RecommendedFoodDetail(),
+      home: MainFoodPage(),
     );
   }
 }

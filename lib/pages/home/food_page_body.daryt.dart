@@ -117,7 +117,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           ListView.builder(
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              itemCount: 10,
+              itemCount: 5,
               itemBuilder: (context, index) {
                 return GestureDetector(
                   onTap: (){

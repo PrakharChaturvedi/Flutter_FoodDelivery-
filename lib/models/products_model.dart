@@ -12,15 +12,15 @@ class Product {
     _products = products;
   }
 
-  Product.fromJson(Map<String,dynamic>json){
-    _totalSize = json['total_size'];
-    _typeId = json['type_id'];
+  Product.fromJson(Map<String, dynamic> json) {
+    _totalSize = json['totalSize']; // Note the change in key
+    _typeId = json['type_id']; // Note the change in key
     _offset = json['offset'];
 
-    if(json['products'] != null) {
+    if (json['products'] != null) {
       _products = <ProductModel>[];
-      json['products'].forEach((v){
-        _products !.addAll(ProductModel.fromJson(v) as Iterable<ProductModel>);
+      json['products'].forEach((v) {
+        _products!.add(ProductModel.fromJson(v));
       });
     }
   }

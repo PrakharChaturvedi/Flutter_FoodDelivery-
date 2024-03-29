@@ -6,11 +6,11 @@ class PopularProductController extends GetxController {
   final PopularProductRepo popularProductRepo;
   PopularProductController({required this.popularProductRepo});
 
-  List<ProductModel> _popularProductList = []; // Change to List<ProductModel>
+  List<ProductModel> _popularProductList = [];
   List<ProductModel> get popularProductList => _popularProductList;
 
   bool _isLoaded = false;
-  bool get isloaded => _isLoaded;
+  bool get isLoaded => _isLoaded;
 
   Future<void> getPopularProductList() async {
     print("Fetching data from server...");
@@ -18,25 +18,14 @@ class PopularProductController extends GetxController {
     print("Data fetched from server: ${response.body}");
 
     if (response.statusCode == 200) {
-      // Parse response body to List<dynamic>
       List<dynamic> responseBody = response.body;
+      List<ProductModel> products = responseBody.map((item) => ProductModel.fromJson(item)).toList();
 
-      // Convert List<dynamic> to List<ProductModel>
-      List<ProductModel> products = responseBody
-          .map((item) => ProductModel.fromJson(item))
-          .toList();
-
-      // Print received data to console
-      print("List of popular products: $products");
-
-      // Store received data
       _popularProductList = products;
-
       _isLoaded = true;
-      update(); // Notify listeners of changes
+      update();
     } else {
       print("Error fetching data from server: ${response.statusCode}");
-      // Handle the error case
     }
   }
 }

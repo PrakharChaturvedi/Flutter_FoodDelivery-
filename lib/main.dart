@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/controllers/popular_product_controller.dart';
-import 'package:food_delivery_app/pages/food/popular_food_details.dart';
-import 'package:food_delivery_app/pages/food/recommended_food.dart';
-import 'package:food_delivery_app/pages/home/food_page_body.daryt.dart';
 import 'package:food_delivery_app/pages/home/main_food_page.dart';
 import 'package:food_delivery_app/routes/route_helper.dart';
 import 'package:get/get.dart';
 import 'helper/dependencies.dart' as dep;
+// import 'Testing_Servers//testing_Api.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dep.init();
   runApp(const MyApp());
+
+  // Call fetchData() here
+  // fetchDataFromNodeAPI();
 }
 
 class MyApp extends StatelessWidget {
@@ -33,4 +34,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

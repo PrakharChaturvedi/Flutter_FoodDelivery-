@@ -12,18 +12,9 @@ class Product {
     this._products = products;
   }
 
-  Product.fromJson(Map<String, dynamic> json) {
-    _totalSize = json['total_size'];
-    _typeId = json['typeId'];
-    _offset = json['offset'];
-    if (json['products'] != null) {
-      _products = <ProductModel>[];
-      json['products'].forEach((v) {
-        _products.add(ProductModel.fromJson(v));
-      });
-    }
+  Product.fromJson(List<dynamic> json) {
+    _products = json.map((productJson) => ProductModel.fromJson(productJson)).toList();
   }
-
 }
 
 class ProductModel {

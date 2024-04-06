@@ -1,27 +1,28 @@
+import 'dart:developer';
+
 import 'package:get/get_connect/connect.dart';
 import '../../utils/app_constants.dart';
 
 class ApiClient extends GetConnect {
   late String token;
   final String appBaseUrl;
+  late Map<String, String> _mainHeaders;
 
   ApiClient({required this.appBaseUrl}) {
     baseUrl = appBaseUrl;
     timeout = const Duration(seconds: 30);
-    token = AppConstants.TOKEN;
+   // _mainHeaders={
+   //  'Content-type':'application/json; charset=UTF-8',
+   //   'Authorization' : 'Bearer $token',
+   // };
   }
 
   Future<Response> getData(String uri) async {
     try {
-      final response = await get(uri, headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-        'Authorization': 'Bearer $token',
-      });
+      Response response = await get(uri);
       return response;
     } catch (e) {
-      // Handle any exceptions that occur during the API call
-      print('Error fetching data: $e');
-      return Response(statusCode: 500, statusText: e.toString());
+      return Response(statusCode: 1, statusText: e.toString());
     }
   }
 }

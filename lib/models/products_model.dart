@@ -2,67 +2,65 @@ class Product {
   int? _totalSize;
   int? _typeId;
   int? _offset;
-  late List<ProductModel>? _products;
+  late List<ProductModel> _products;
   List<ProductModel>? get products => _products;
 
   Product({required totalSize, required typeId, required products, required offset}) {
-    _totalSize = totalSize;
-    _typeId = typeId;
-    _offset = offset;
-    _products = products;
+    this._totalSize = totalSize;
+    this._typeId = typeId;
+    this._offset = offset;
+    this._products = products;
   }
 
   Product.fromJson(Map<String, dynamic> json) {
-    _totalSize = json['total_size']; // Updated key
-    _typeId = json['typeId']; // Updated key
+    _totalSize = json['total_size'];
+    _typeId = json['typeId'];
     _offset = json['offset'];
-
     if (json['products'] != null) {
       _products = <ProductModel>[];
       json['products'].forEach((v) {
-        _products!.add(ProductModel.fromJson(v));
+        _products.add(ProductModel.fromJson(v));
       });
     }
   }
+
 }
 
 class ProductModel {
-  final int id;
-  final String name;
-  final String description;
-  final int price;
-  final int stars;
-  final String img;
-  final String location;
-  final String createdAt;
-  final String updatedAt;
-  final int typeId;
+  int? id;
+  String? name;
+  String? description;
+  int? price;
+  int? stars;
+  String? img;
+  String? location;
+  String? createdAt;
+  String? updatedAt;
+  int? typeId;
 
   ProductModel({
-    required this.id,
-    required this.name,
-    required this.description,
-    required this.price,
-    required this.stars,
-    required this.img,
-    required this.location,
-    required this.createdAt,
-    required this.updatedAt,
-    required this.typeId,
+    this.id,
+     this.name,
+     this.description,
+     this.price,
+     this.stars,
+     this.img,
+     this.location,
+     this.createdAt,
+     this.updatedAt,
+     this.typeId,
   });
 
-  factory ProductModel.fromJson(Map<String, dynamic> json) {
-    return ProductModel(
-      id: json['id'],
-      name: json['name'],
-      description: json['description'],
-      price: json['price'],
-      stars: json['stars'],
-      img: json['img'],
-      location: json['location'],
-      createdAt: json['created_at'],
-      updatedAt: json['updated_at'],
-      typeId: json['typeId'],
-    );
+  ProductModel.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    description = json['description'];
+    price = json['price'];
+    stars = json['stars'];
+    img = json['img'];
+    location = json['location'];
+    createdAt = json['created_at'];
+    updatedAt = json['updated_at'];
+    typeId = json['typeId'];
   }
 }

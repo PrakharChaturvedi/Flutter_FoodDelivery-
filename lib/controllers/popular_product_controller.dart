@@ -5,25 +5,20 @@ import '../models/products_model.dart';
 class PopularProductController extends GetxController {
   final PopularProductRepo popularProductRepo;
   PopularProductController({required this.popularProductRepo});
-
   List<ProductModel> _popularProductList = [];
   List<ProductModel> get popularProductList => _popularProductList;
 
-  bool _isLoaded = false;
-  bool get isLoaded => _isLoaded;
-
   Future<void> getPopularProductList() async {
-    print("Fetching data from server...");
     Response response = await popularProductRepo.getPopularProductList();
     print("Data fetched from server: ${response.body}");
-
     if (response.statusCode == 200) {
-      List<dynamic> responseBody = response.body;
-      List<ProductModel> products = responseBody.map((item) => ProductModel.fromJson(item)).toList();
-
-      _popularProductList = products;
-      _isLoaded = true;
+      _popularProductList=[];
+      print("Got products....!");
+      // _popularProductList.addAll(Product.fromJson(response.body).products);
+      _popularProductList.addAll(Product.fromJson(response.body).products as Iterable<ProductModel>);
+      // _popularProductList.addAll(response.body);
       update();
+      print("The product list in App : $_popularProductList");
     } else {
       print("Error fetching data from server: ${response.statusCode}");
     }

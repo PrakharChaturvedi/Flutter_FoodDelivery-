@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_const_constructors_in_immutables
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/controllers/popular_product_controller.dart';
 import 'package:food_delivery_app/pages/home/main_food_page.dart';
@@ -19,9 +19,7 @@ class PopularFoodDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     var popularProductList = Get.find<PopularProductController>().popularProductList;
 
-    // Check if the pageId is within the valid range
     if (pageId < 0 || pageId >= popularProductList.length) {
-      // Handle the case when the pageId is out of range
       return Scaffold(
         body: Center(
           child: Text("Invalid pageId: $pageId"),

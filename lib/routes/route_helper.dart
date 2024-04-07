@@ -1,6 +1,4 @@
 // ignore_for_file: prefer_const_constructors
-
-import 'package:flutter/cupertino.dart';
 import 'package:food_delivery_app/pages/food/popular_food_details.dart';
 import 'package:food_delivery_app/pages/food/recommended_food.dart';
 import 'package:food_delivery_app/pages/home/main_food_page.dart';
@@ -38,6 +36,5 @@ class RouteHelper{
       return RecommendedFoodDetail();
     },
     ),
-
   ];
 }

@@ -1,7 +1,6 @@
-import 'dart:developer';
+// ignore_for_file: unused_field
 
 import 'package:get/get_connect/connect.dart';
-import '../../utils/app_constants.dart';
 
 class ApiClient extends GetConnect {
   late String token;
